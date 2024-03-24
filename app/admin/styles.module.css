@@ -27,21 +27,3 @@
     color: white;
     background-color: black;
 }
-.formcards{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    padding: .5rem;
-    align-items: center;
-    justify-content: center;
-}
-.formcard{
-    padding: 1rem;
-    border: solid 1px white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}

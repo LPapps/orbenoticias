@@ -10,7 +10,7 @@ export default function Formulario() {
     const r = await fetch("/api", {
       method: "POST",
       headers: new Headers({ "content-type": "application/json" }),
-      body: JSON.stringify({ formulario }),
+      body: JSON.stringify({evento: 'agregarFormulario', data: formulario}),
     });
     const rt = await r.json();
     if (rt.g) {
