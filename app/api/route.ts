@@ -15,13 +15,13 @@ export async function POST( req: NextRequest ) {
     // ------------------------------------------------------------------
     // CRIPTOGRAFIA
     // ------------------------------------------------------------------
-    const cr = new Cryptr(process.env.CRYPTO || 'error_env');
+    const cr = new Cryptr(`${process.env.HASH}`);
     // ------------------------------------------------------------------
     // SOLICITUD AL BACKEND
     // ------------------------------------------------------------------
     async function enviarDatos (evento: string, hash: string) {
       try {
-        const url = `${process.env.WEBURL}/api/${evento}`
+        const url = `${process.env.APIURL}/api/${evento}`
         const r = await fetch(url, {
           method: "POST",
           headers: new Headers({ "content-type": "application/json" }),
@@ -108,6 +108,8 @@ export async function POST( req: NextRequest ) {
       if(rta.x) return NextResponse.json({ x: true });
     }
     if(evento == 'check'){
+      if(!token) return NextResponse.json({e: 'token error'});
+
       const o = { evento, token, web: process.env.WEB };
       const hash = encriptar(o);
       const rta = await enviarDatos(evento, hash);
@@ -118,11 +120,13 @@ export async function POST( req: NextRequest ) {
       const o = { evento, token, web: process.env.WEB, url: process.env.WEBURL };
       const hash = encriptar(o);
       const rta = await enviarDatos(evento, hash);
-      if(!rta.e) NextResponse.json({i: 'flama'})
+      if(rta.e) return NextResponse.json({ e: true });
+      if(rta.a) return NextResponse.json({ a: true });
+      return NextResponse.json({ a: false });
     }
   // respuesta default si no se cumpe ninguna condicion
-  return NextResponse.json({ r: true })
+  return NextResponse.json({ r: true });
 }
 export async function GET( req: NextRequest ) {
-    return NextResponse.json({200:200})
+    return NextResponse.json({200:200});
 }

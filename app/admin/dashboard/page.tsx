@@ -14,6 +14,7 @@ type Form = {
     salida: string,
     destino: string,
     fecha: string
+    tel: string
 }
 
 function Formulario ( { data, consulta } : { data: FormData, consulta: Function } ) {
@@ -24,6 +25,7 @@ function Formulario ( { data, consulta } : { data: FormData, consulta: Function 
         <p>salida: {data.form.salida}</p>
         <p>destino: {data.form.destino}</p>
         <p>fecha: {data.form.fecha}</p>
+        <p>tel: {data.form.tel}</p>
         <p>id: {data.id}</p>
         <button onClick={()=>consulta('eliminarFormulario', data.id)}> Eliminar </button>
     </div>
@@ -55,18 +57,24 @@ export default function Dashboard () {
             body: JSON.stringify({ evento, token, id })
         })
         const rta = await res.json();
+        if(rta.r) notificar('evento default, hubo algun error');
         // MANEJANDO EVENTOS DE LA RESPUESTA DEL BACKEND
         if(evento == 'pedirFormularios'){
-            if(rta.e) return false;
+            if(rta.e) notificar('Error al pedir formularios');
             if(rta.d) setForms(rta.d);
         }
         if(evento == 'eliminarFormulario'){
-            if(rta.e) return false;
+            if(rta.e) notificar('Error al eliminar formulario');
             if(rta.x) return true;
         }
         if(evento == 'check'){
+            if(rta.e) notificar('Error checkeando los datos');
             if(rta.estado) setState(rta.estado);
-            if(rta.e) console.log('error en check, rta: ' + JSON.stringify(rta));
+        }
+        if(evento == 'antiSleep'){
+            if(rta.e) notificar('Error al añadir web al loop');
+            if(rta.a) notificar('Web añadida al loop de ping');
+            if(!rta.a) notificar('La web ya estaba en el loop de ping');
         }
     }
 
