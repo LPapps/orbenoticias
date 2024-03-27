@@ -7,6 +7,12 @@
     gap: 1rem;
     padding: 1rem;
 }
+.total button{
+    transition: all ease-in-out .3s;
+}
+.total button:hover{
+    transform: scale(1.05);
+}
 .comandos{
     height: 95%;
     width: 30%;

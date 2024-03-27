@@ -78,6 +78,24 @@ export async function POST( req: NextRequest ) {
       if(rta.e) return NextResponse.json({ e: true })
       if(rta.g) return NextResponse.json({ g: true });
     }
+    if(evento == 'checkearPapelera'){
+      const o = {
+        evento,
+        token,
+        web: process.env.WEB
+      };
+      const hash = encriptar(o);
+      const rta = await enviarDatos(evento, hash);
+      if(rta.e) return NextResponse.json({ e: true });
+      if(rta.h){
+        const arrayDesencriptado = JSON.parse(desencriptar(rta.h));
+        const itemsLegibles = arrayDesencriptado.map(( item: string ) => {
+        const formDesencriptado = JSON.parse(desencriptar(item));
+        return formDesencriptado;
+      });
+      return NextResponse.json({ p: itemsLegibles});
+      }
+    }
     if(evento == 'pedirFormularios'){
       const o = {
         evento,
