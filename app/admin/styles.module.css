@@ -10,10 +10,19 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    border: solid 1px white;
+    border: solid 1px rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
     height: auto;
     width: 50%;
     gap: 1rem;
+    background-color: rgba(255,255,255,0.02);
+    border-radius: 1rem;
+}
+.form input{
+    padding: .5rem;
+    border: none;
+    border-bottom: solid 2px rgba(255,255,255,0.05);
+    background-color: transparent;
 }
 .form h2{
     width: 100%;
@@ -24,6 +33,7 @@
     width: 100%;
     border: none;
     font-size: 20px;
-    color: white;
-    background-color: black;
+    color: whitesmoke;
+    border: solid 1px rgba(255,255,255,0.05);
+    background-color: transparent;
 }

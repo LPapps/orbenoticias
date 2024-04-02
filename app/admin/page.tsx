@@ -17,7 +17,7 @@ export default function Login(){
 
     const res = await fetch('/api',{
       method: 'POST',
-      body: JSON.stringify({evento: 'login', data: {user, password}})
+      body: JSON.stringify({evento: 'login', data: { user, password }})
     })
     const { token, error } = await res.json();
     if(token != undefined){
@@ -25,7 +25,7 @@ export default function Login(){
       redirect('/admin/dashboard')
     }
     if(error){
-      showNotif('Error: datos incorrectos!')
+      showNotif('Datos incorrectos!')
     }
   }
   
@@ -34,7 +34,7 @@ export default function Login(){
     <form className={css.form} action={submit}>
       <h2>Iniciar sesión</h2>
     <input type="text" name="user" placeholder="usuario: " />
-    <input type="text" name="password" placeholder="contraseña: " />
+    <input type="password" name="password" placeholder="contraseña: " />
     <button type="submit">Conectar</button>
   </form>
   </div>

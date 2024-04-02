@@ -1,0 +1,45 @@
+.card1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 49%;
+    height: 90%;
+    padding: 1rem;
+    gap: .5rem;
+    border: solid 1px rgba(250,250,250,0.05);
+    background-color: rgba(500,500,500,0.03);
+    backdrop-filter: blur(2px);
+    border-radius: 1rem;
+}
+.card1 h4{
+    font-weight: 500;
+}
+.card2{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 49%;
+    height: 90%;
+    padding: 1rem;
+    gap: .5rem;
+    border: solid 1px rgba(250,250,250,0.05);
+    background-color: rgba(500,500,500,0.03);   
+    backdrop-filter: blur(2px);
+    border-radius: 1rem;
+
+}
+.card2 ul{
+    padding-left: 1rem;
+}
+.card2 ul li{
+    font-weight: 200;
+}
+
+@media (max-width: 700px) {
+    .card1,.card2{
+        width: 95%;
+        min-height: 50%;
+    }
+  }

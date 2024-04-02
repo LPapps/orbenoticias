@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { redirect } from "next/navigation"
 import css from './page.module.css';
 import Notificaciones from "../../componentes/notificaciones";
@@ -11,22 +11,18 @@ type FormData = {
 type Form = {
     nombre: string,
     apellido: string,
-    salida: string,
-    destino: string,
-    fecha: string
-    tel: string
+    telefono: String,
+    consulta: String
 }
 
 function Formulario ( { data, consulta } : { data: FormData, consulta: Function } ) {
     return <div className={css.formulario}>
         <p><b>NUEVA CONSULTA</b></p>
+        <p>id: {data.id}</p>
         <p>nombre: {data.form.nombre}</p>
         <p>apellido: {data.form.apellido}</p>
-        <p>salida: {data.form.salida}</p>
-        <p>destino: {data.form.destino}</p>
-        <p>fecha: {data.form.fecha}</p>
-        <p>tel: {data.form.tel}</p>
-        <p>id: {data.id}</p>
+        <p>tel: {data.form.telefono}</p>
+        <p>consulta: {data.form.consulta}</p>
         <button onClick={()=>consulta('eliminarFormulario', data.id)}> Eliminar </button>
     </div>
 }
@@ -35,10 +31,8 @@ function Papelera ( { data } : { data: Form } ) {
         <p><b>ARCHIVO DE PAPELERA</b></p>
         <p>nombre: {data.nombre}</p>
         <p>apellido: {data.apellido}</p>
-        <p>salida: {data.salida}</p>
-        <p>destino: {data.destino}</p>
-        <p>fecha: {data.fecha}</p>
-        <p>tel: {data.tel}</p>
+        <p>tel: {data.telefono}</p>
+        <p>consulta: {data.consulta}</p>
     </div>
 }
 export default function Dashboard () {
@@ -48,6 +42,7 @@ export default function Dashboard () {
     const [ state, setState ] = useState({model: 'not load', db: 'not load'});
     const [ viewData, setViewData ] = useState('');
     const [ notificacion, setNotificacion ] = useState('');
+    const [ sidebar, setSidebar ] = useState(false);
 
     useEffect(()=>{
         const token = sessionStorage.getItem('token')
@@ -55,6 +50,7 @@ export default function Dashboard () {
         setToken(token);
     },[]);
     useEffect(()=>{consulta('check')},[token]);
+    const sb = useRef<any>(null);
     
     const Formularios = () => (<>{forms.map((data, index) => <Formulario key={ index } data={ data } consulta={ consulta }/>)}</>);
     const Papeleras = () => (<>{papelera.map((data, index) => <Papelera key={ index } data={ data } />)}</>);
@@ -136,7 +132,6 @@ export default function Dashboard () {
         console.log('----------------------');
         } catch (error) { console.log('ERROR EN PRUEBAS: '+error)}
     }
-
     async function consulta (evento: string, id?: string, t?: boolean, data?: object) {
         if(!token) return false;
         if(evento == 'pedirFormularios' && !t ) notificar('Pidiendo formularios...');
@@ -185,13 +180,23 @@ export default function Dashboard () {
             if(!rta.a) notificar('La web ya estaba en el loop de ping');
         }
     }
-
+    function changeSideBar(){
+        if(!sidebar){
+        sb.current.style.width = '80%';
+        } else {
+        sb.current.style.width = '0';
+        }
+        setSidebar(!sidebar);
+    }
 
     return <div className={css.total}>
         { token && <>
         { notificacion && <Notificaciones notificacion={ notificacion } />}
-            <div className={css.comandos}>
-                <h1>DASHBOARD</h1>
+        <div className={css.nav}>
+            <button onClick={changeSideBar}>≡</button>
+        </div>
+            <div ref={sb} className={css.comandos}>
+                <h1>ADMIN</h1>
                 <p>db: {state.db}</p>
                 <p>md: {state.model}</p>
             <button onClick={()=>{consulta('pedirFormularios')}}> Formularios </button>
