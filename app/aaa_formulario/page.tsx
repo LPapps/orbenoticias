@@ -29,7 +29,7 @@ export default function Formulario() {
   return (
     <div id="formulario" className="total">
       <form action={boton} className={css.form}>
-        <h2>Contacto</h2>
+        <h2>CONTACTO</h2>
         <p>Nombre</p>
         <input type="text" name="nombre" />
         <p>Apellido</p>

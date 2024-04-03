@@ -19,7 +19,7 @@ h3{
 }
 h2{
   font-size: 25px;
-  text-shadow: rgba(255,0,255,1) 0 0 200px;
+  /*text-shadow: rgba(255,0,255,1) 0 0 200px;*/
   border-bottom: solid 2px rgba(255,255,255,0.1);
   width: 100%;
   padding: 1rem;
@@ -46,7 +46,8 @@ body {
   padding-top: 4rem;
   padding-bottom: 1rem;
   overflow: hidden;
-
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(64,5,67,0.2) 36%, rgba(54,4,62,0.3) 60%, rgba(2,0,36,1) 100%); 
 }
 /* CEL */
 @media (prefers-color-scheme: dark) {
