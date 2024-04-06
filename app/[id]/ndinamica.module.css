@@ -1,0 +1,54 @@
+.ndinamica{
+    border: solid 1px var(--borde);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.ndinamica p{
+    padding: 1rem;
+}
+.ndinamica h2{
+    padding-left: 1rem;
+    font-size: 20px;
+    font-weight: 300;
+}
+.ndinamica h4{
+    width: 100%;
+    padding-left: 1rem;
+}
+.ndinamica h1{
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.foto{
+    border: solid 1px var(--borde);
+    width: 100%;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foto img{
+    height: 100%;
+    width: 100%;
+    object-fit:scale-down;
+    object-position: center;
+}
+.tags{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 1rem;
+    gap: .4rem;
+}
+.tags p{
+    padding: .5rem;
+    color: var(--letra);
+    background-color: black;
+    border-radius: 1rem;
+}

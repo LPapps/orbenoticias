@@ -1,13 +1,14 @@
 :root {
-  overflow: hidden;
   height: 100vh;
     scroll-behavior: smooth;
-    --borde: rgba(255,255,255,0.05);
-    --card: rgba(255,255,255,0.03);
-    --letra: whitesmoke;
-    --fondo: #00001a;
+    --borde: #999;
+    --letra: #00001a;
+    --letraimg: whitesmoke;
+    --fondo: whitesmoke;
     --pisoh3: rgba(255,255,255,0.2);
-    background-color: #00001a;
+    background-color: var(--fondo);
+  overflow: hidden;
+
 }
 * {
   box-sizing: border-box;
@@ -16,13 +17,6 @@
 }
 h3{
   font-weight: 500;
-}
-h2{
-  font-size: 25px;
-  /*text-shadow: rgba(255,0,255,1) 0 0 200px;*/
-  border-bottom: solid 2px rgba(255,255,255,0.1);
-  width: 100%;
-  padding: 1rem;
 }
 p{
   color: #ccc;
@@ -37,17 +31,17 @@ body {
 }
 /* PC */
 .total{
+  background-color: var(--fondo);
   height: 100%;
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
-  padding-top: 4rem;
-  padding-bottom: 1rem;
-  overflow: hidden;
-  background: rgb(2,0,36);
+  padding: 4rem 1rem 1rem 1rem;
+  /*background: rgb(2,0,36);
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(64,5,67,0.2) 36%, rgba(54,4,62,0.3) 60%, rgba(2,0,36,1) 100%); 
+  */
 }
 /* CEL */
 @media (prefers-color-scheme: dark) {

@@ -18,12 +18,12 @@ export default function Nav() {
   return (
     <div className={css.total}>
       <div className={css.logo}>
-        <h2>LP</h2>
+        <a href="/#inicio"><h2>ORBE NOTICIAS</h2></a>
       </div>
       <div className={css.links}>
-        <a href="#principal">Inicio</a>
-        <a href="#informacion">Información</a>
-        <a href="#formulario">Contacto</a>
+        <a href="/#inicio">Inicio</a>
+        <a href="/#secundario">Noticias</a>
+        <a href="/#contacto">Contacto</a>
       </div>
       <div className={css.sidebar} ref={tref}>
         <h3>Bienvenid@</h3>

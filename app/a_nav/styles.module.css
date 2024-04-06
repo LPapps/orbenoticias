@@ -12,14 +12,17 @@
     gap: 1rem;
     padding-left: 1rem;
     padding-right: 2rem;
-    backdrop-filter: blur(2px);
+    background-color: var(--fondo);  
 }
 .logo{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 95%;
-    width: 5rem;
+}
+.logo a{
+    text-decoration: none;
+    color: var(--letra);
 }
 .logo h2{
     font-weight: 900;

@@ -1,50 +1,124 @@
-.card1{
-    height: 90%;
-    width: 49%;
+.principal{
+    height: 100%;
+    width: 100%;
+    border: solid 1px var(--borde);
+    padding: 1rem;
+    background-color: var(--card);
+}
+.top{
+    width: 100%;
+    height: 70%;
+    border: solid 1px var(--borde);
+}
+.top a{
+    text-decoration: none;
+    color: var(--letraimg);
+}
+.noticiatop{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+.noticiatop h1{
+    z-index: 3;
+    padding: 1rem;
+    width: 100%;
+    background-color: rgba(0,12,18,0.7);
+    text-align: center;
+}
+.topimg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .2s ease;
 }
-.card1 h1{
-    letter-spacing: -2px;
-    font-weight: 900;
-    font-size: 100px;
-    color: transparent;
-    text-shadow: 
-    2px 2px white,
-    -2px -2px white,
-    2px -2px white,
-    -2px 2px white,
-    #ffc0dc 0px 0px 4px,
-    #ff5aa4 0px 0px 10px,    
-    #ff1b82 0px 0px 20px,
-    #ff1b82 0px 0px 20px,
-    #ff1b82 0px 0px 900px,
-    #ff1b82 0px 0px 1350px,
-    #ff1b82 0px 0px 1800px;
+.topimg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
-.card1 h2{
-    margin-top: -7px;
-    font-size: 22px;
-    font-weight: 200;
-    letter-spacing: -1px;
-    border: none;
-    text-align: center;
+.topimg:hover{
+    transform: scale(1.2);
 }
-.card2{
-    height: 90%;
-    padding: 1rem;
-    width: 49%;
+.destacados{
+    padding: .3rem;
+    height: 30%;
+    width: 100%;
+    border: solid 1px var(--borde);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.noticiadestacada{
+    position: relative;
+    height: 100%;
+    width: 15rem;
+    border: solid 1px var(--borde);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: .5rem;
-    border: solid 1px var(--borde);
-    background-color: var(--card);
-    border-radius: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;   
 }
+.noticiadestacada a{
+    height: 100%;
+    width: 100%;
+    color: var(--letraimg);
+    text-decoration: none;
+}
+.noticiadestacada h2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding: .5rem;
+    overflow: hidden;
+    height: 40px;
+    width: calc(100% - 1px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: rgba(0,12,18,0.7);
+}
+.destacadaimg{
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all .2s ease;
+}
+.destacadaimg:hover{
+    transform: scale(1.1);
+}
+.destacadaimg img{position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.anuncio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    border: solid 1px var(--borde);
+}
+.anuncio p{
+    color: var(--letra)
+}
+
 @media (max-width: 700px) {
     .card1,.card2{ 
         width: 95%;
