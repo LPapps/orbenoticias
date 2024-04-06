@@ -10,19 +10,6 @@ import { NextRequest, NextResponse } from "next/server";
       hash: string
     }
 
-export type Noticia = {
-  id: number,
-  principal: boolean | undefined,
-  ubicacion: number,
-  titulo: string,
-  imagen: string,
-  contenido: Contenido
-}
-export type Contenido = {
-  subtitulo: string | undefined,
-  parrafo: string
-}
-
 const pseudodb = [
       {
           id: 1,

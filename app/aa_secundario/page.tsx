@@ -5,11 +5,20 @@ import { useEffect, useState } from "react";
 function Row({noticia}:{noticia:Noticia}){
   return <a href={`${noticia.id}`}><div className={css.noticia}><h3>{noticia.titulo}</h3></div></a>
 }
-export default function Secundario({data}: {data: Noticia[]}) {
+export default function Secundario() {
   const [ state, setState ] = useState<Noticia[]>();
   useEffect(()=>{
-    setState(data)
+    getData();
   },[])
+  async function getData(){
+    const r = await fetch('/api',{
+      method:'POST',
+      headers: new Headers({'content-type':'application/json'}),
+      body: JSON.stringify({evento: 'pseudodb'})
+    })
+    const { array } = await r.json();
+    setState(array)
+  }
   return (
     <div id="secundario" className="total">
       <div className={css.secundario}>

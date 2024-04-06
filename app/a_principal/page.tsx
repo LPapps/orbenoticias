@@ -3,13 +3,21 @@ import { useEffect, useState } from "react";
 import css from "./styles.module.css";
 import Image from "next/image";
 import type { Noticia } from "../page";
-export default function Principal({data}: {data: Noticia[]}) {
+
+export default function Principal() {
   const [ state, setState ] = useState<Noticia[]>();
   useEffect(()=>{
-    setState(data)
+    getData();
   },[])
-
-
+  async function getData(){
+    const r = await fetch('/api',{
+      method:'POST',
+      headers: new Headers({'content-type':'application/json'}),
+      body: JSON.stringify({evento: 'pseudodb'})
+    })
+    const { array } = await r.json();
+    setState(array)
+  }
   return (
     <div id="inicio" className="total">
       <div className={css.principal}>

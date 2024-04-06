@@ -8,21 +8,20 @@
     padding: 1rem;
 }
 .ndinamica p{
+    color: var(--letra);
     padding: 1rem;
-}
-.ndinamica h2{
-    padding-left: 1rem;
-    font-size: 20px;
-    font-weight: 300;
+    font-weight: 300;   
 }
 .ndinamica h4{
     width: 100%;
     padding-left: 1rem;
 }
 .ndinamica h1{
+    color: var(-letra);
     padding: 1rem;
     width: 100%;
     text-align: center;
+    background-color: var(--letra);
 }
 .foto{
     border: solid 1px var(--borde);
@@ -48,7 +47,7 @@
 }
 .tags p{
     padding: .5rem;
-    color: var(--letra);
-    background-color: black;
+    color: var(--letrafoto);
+    background-color: var(--letra);
     border-radius: 1rem;
 }

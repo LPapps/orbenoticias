@@ -2,7 +2,7 @@
 import css from "./ndinamica.module.css";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
+import Footer from "../aaaa_footer/page";
 
 export type Contenido = {
     subtitulo?: string,
@@ -59,6 +59,7 @@ export default function NoticiaDinamica({ params } : {params: { id:number }}){
             <ContenidoDinamico contenido={state.contenido}/>
             <Tags tags={state.tags}/>
             <h4>Editor: {state.editor}</h4>
+            <Footer />
             </div> : ''}
 </div>
 }
